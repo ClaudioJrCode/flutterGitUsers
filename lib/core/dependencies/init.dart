@@ -6,7 +6,7 @@ import 'package:git_users/core/adapters/shared_preferences/shared_prefs_interfac
 import 'package:git_users/modules/search_history/data/datasources/search_history_datasource.dart';
 import 'package:git_users/modules/search_history/domain/repositories/search_history_repository_interface.dart';
 import 'package:git_users/modules/search_history/domain/usecases/get_search_history_usecase.dart';
-import 'package:git_users/modules/search_history/infra/datasource/search_history_data_source.dart';
+import 'package:git_users/modules/search_history/infra/datasource/search_history_datasource_interface.dart';
 import 'package:git_users/modules/search_history/infra/repositories/search_history_respository.dart';
 import 'package:git_users/modules/home_screen/data/datasources/user_data_source.dart';
 import 'package:git_users/modules/home_screen/domain/repositories/user_repository_interface.dart';

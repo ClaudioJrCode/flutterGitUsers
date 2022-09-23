@@ -3,7 +3,7 @@ import 'package:git_users/core/exceptions/result.dart';
 
 import '../../domain/entities/search_history_entity.dart';
 import '../../domain/repositories/search_history_repository_interface.dart';
-import '../datasource/search_history_data_source.dart';
+import '../datasource/search_history_datasource_interface.dart';
 
 class SearchHistoryRepository implements ISearchHistoryRepository {
   final ISearchHistoryDataSource searchHistoryDataSource;
