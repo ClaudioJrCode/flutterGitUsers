@@ -7,7 +7,7 @@ abstract class IHttpClient {
   });
 
   Future<ClientResponse> get(
-    String path, {
+    String url, {
     Map<String, String>? headers,
   });
 

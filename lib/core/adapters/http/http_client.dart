@@ -39,7 +39,7 @@ class HttpClient implements IHttpClient {
   }) async {
     try {
       final response = await http.get(Uri.parse(url), headers: headers).timeout(
-          const Duration(seconds: 2),
+          const Duration(seconds: 5),
           onTimeout: () => throw ErrorDescription('Timeout'));
       return response.toClientResponse();
     } catch (error) {
