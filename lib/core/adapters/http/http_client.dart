@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:git_users/core/adapters/http/client_extension.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -37,7 +38,9 @@ class HttpClient implements IHttpClient {
     Map<String, String>? headers,
   }) async {
     try {
-      final response = await http.get(Uri.parse(url), headers: headers);
+      final response = await http.get(Uri.parse(url), headers: headers).timeout(
+          const Duration(seconds: 2),
+          onTimeout: () => throw ErrorDescription('Timeout'));
       return response.toClientResponse();
     } catch (error) {
       throw error.toString();
