@@ -6,7 +6,6 @@ Aplicação feita em Flutter para consumo da API pública do GitHub, aplicando c
 
 
 
-
 ## Getting Started
 
 This project is a starting point for a Flutter application.
