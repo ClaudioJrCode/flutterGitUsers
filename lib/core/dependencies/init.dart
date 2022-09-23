@@ -8,10 +8,10 @@ import 'package:git_users/modules/search_history/domain/repositories/search_hist
 import 'package:git_users/modules/search_history/domain/usecases/get_search_history_usecase.dart';
 import 'package:git_users/modules/search_history/infra/datasource/search_history_data_source.dart';
 import 'package:git_users/modules/search_history/infra/repositories/search_history_respository.dart';
-import 'package:git_users/modules/home_screen/data/datasources/user_datasource.dart';
+import 'package:git_users/modules/home_screen/data/datasources/user_data_source.dart';
 import 'package:git_users/modules/home_screen/domain/repositories/user_repository_interface.dart';
 import 'package:git_users/modules/home_screen/domain/usecases/get_user_usecase.dart';
-import 'package:git_users/modules/home_screen/infra/datasource/user_data_source.dart';
+import 'package:git_users/modules/home_screen/infra/datasource/user_data_source_interface.dart';
 import 'package:git_users/modules/home_screen/infra/repositories/user_respository.dart';
 import 'package:git_users/modules/home_screen/presenter/screens/home_screen/home_screen_bloc/home_screen_bloc.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_bloc.dart';
