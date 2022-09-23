@@ -33,10 +33,11 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.15
-  rxdart: ^0.27.5
-  bloc_pattern: ^3.0.1
+  bloc: ^8.0.3
+  flutter_bloc: ^8.1.1
   http: ^0.13.5
   get_it: ^7.2.0
+  intl: ^0.17.0
 
 
 dev_dependencies:
