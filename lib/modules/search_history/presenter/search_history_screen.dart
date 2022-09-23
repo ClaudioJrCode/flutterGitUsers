@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:git_users/modules/home_screen/presenter/screens/home_screen/widgets/center_text.dart';
 import 'package:git_users/modules/home_screen/presenter/screens/home_screen/widgets/users_list/custom_divider.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_bloc.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_event.dart';
@@ -22,21 +23,37 @@ class SearchHistoryScreen extends StatelessWidget {
         child: BlocBuilder<SearchHistoryBloc, SearchHistoryState>(
           bloc: bloc,
           builder: (BuildContext context, state) {
-            return ListView.separated(
-                itemBuilder: ((context, index) => SearchTile(
-                      search: state.searchs[index],
-                      onTap: () => bloc.add(SelectedSearch(
-                          context: context,
-                          search: state.searchs[index].search)),
-                    )),
-                separatorBuilder: (_, __) => const CustomDivider(),
-                itemCount: state.searchs.length);
+            switch (state.runtimeType) {
+              case SearchHistoryStateEmptyList:
+                {
+                  return const CenterText(
+                      text: 'Ainda não foi feita nenhuma busca');
+                }
+
+              case SearchHistoryStateError:
+                {
+                  return const CenterText(text: 'Ocorreu um erro');
+                }
+              case SearchHistoryStateLoaded:
+                {
+                  return ListView.separated(
+                      itemBuilder: ((context, index) => SearchTile(
+                            search: state.searchs[index],
+                            onTap: () => bloc.add(SelectedSearch(
+                                context: context,
+                                search: state.searchs[index].search)),
+                          )),
+                      separatorBuilder: (_, __) => const CustomDivider(),
+                      itemCount: state.searchs.length);
+                }
+              default:
+                {
+                  return Container();
+                }
+            }
           },
         ),
       ),
-      floatingActionButton: IconButton(
-          onPressed: () => Navigator.of(context).pop('ClaudioJrCode'),
-          icon: const Icon(Icons.add)),
     );
   }
 }
