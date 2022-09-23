@@ -1,20 +1,7 @@
 # Sobre o gitUser
 
-Aplicação feita em Flutter para consumo da API pública do GitHub, aplicando conceitos de Clean Architeture e Clean Code
+Aplicação feita em Flutter para consumo da API pública do GitHub, aplicando conceitos de Clean Architeture (Clean Dart) e Clean Code e S.O.L.I.D
 
-### Versão do Flutter: 3.0.5
+### Versão do Flutter usada no desenvolvimento: 3.0.5
 
-
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ [Link para o APK no Google Drive](https://drive.google.com/file/d/1jz3jEXlYEkzoPVPsQPRuqLJrq9x1wh-f/view?usp=sharing)
