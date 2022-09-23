@@ -1,6 +1,11 @@
-# git_users
+# Sobre o gitUser
 
-A new Flutter project.
+Aplicação feita em Flutter para consumo da API pública do GitHub, aplicando conceitos de Clean Architeture e Clean Code
+
+### Versão do Flutter: 3.0.5
+
+
+
 
 ## Getting Started
 
