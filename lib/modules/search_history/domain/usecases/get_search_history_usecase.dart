@@ -5,7 +5,7 @@ import '../../../../core/exceptions/exception.dart';
 import '../../../../core/exceptions/result.dart';
 
 abstract class IGetSearchHistoryUseCase {
-  Result<Failure, List<SearchHistoryEntity>> getSearchHistory();
+  Future<Result<Failure, List<SearchHistoryEntity>>> getSearchHistory();
 }
 
 class GetSearchHistoryUseCase implements IGetSearchHistoryUseCase {
@@ -14,7 +14,7 @@ class GetSearchHistoryUseCase implements IGetSearchHistoryUseCase {
   GetSearchHistoryUseCase({required this.repository});
 
   @override
-  Result<Failure, List<SearchHistoryEntity>> getSearchHistory() {
-    return repository.getSearchHistorys();
+  Future<Result<Failure, List<SearchHistoryEntity>>> getSearchHistory() async {
+    return await repository.getSearchHistorys();
   }
 }

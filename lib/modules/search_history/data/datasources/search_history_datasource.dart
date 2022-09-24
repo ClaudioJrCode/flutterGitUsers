@@ -11,8 +11,8 @@ class SearchHistoryDataSource implements ISearchHistoryDataSource {
     required this.prefs,
   });
   @override
-  List<SearchHistoryEntity> getSearchHistorys() {
-    final res = prefs.getString(objectName: "SEARCH LIST");
+  Future<List<SearchHistoryEntity>> getSearchHistorys() async {
+    final res = await prefs.getString(objectName: "SEARCH LIST");
     if (res == null) return [];
     final decoded = jsonDecode(res);
     return List<SearchHistoryEntity>.from(

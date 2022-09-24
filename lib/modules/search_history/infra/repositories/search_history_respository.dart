@@ -13,9 +13,9 @@ class SearchHistoryRepository implements ISearchHistoryRepository {
   });
 
   @override
-  Result<Failure, List<SearchHistoryEntity>> getSearchHistorys() {
+  Future<Result<Failure, List<SearchHistoryEntity>>> getSearchHistorys() async {
     try {
-      final res = searchHistoryDataSource.getSearchHistorys();
+      final res = await searchHistoryDataSource.getSearchHistorys();
       return Result.success(res);
     } catch (e) {
       return Result.failure(BasicError(message: e.toString()));

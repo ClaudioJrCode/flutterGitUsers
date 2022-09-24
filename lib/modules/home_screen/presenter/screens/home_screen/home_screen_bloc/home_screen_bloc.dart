@@ -2,11 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:git_users/core/adapters/injector/injector.dart';
 import 'package:git_users/modules/home_screen/domain/usecases/get_user_usecase.dart';
 import 'package:git_users/modules/home_screen/presenter/screens/home_screen/home_screen_bloc/home_screen_event.dart';
 import 'package:git_users/modules/home_screen/presenter/screens/home_screen/home_screen_bloc/home_screen_state.dart';
 import 'package:git_users/modules/search_history/domain/entities/search_history_entity.dart';
 import 'package:git_users/modules/search_history/domain/usecases/save_new_search_usecase.dart';
+import 'package:git_users/modules/search_history/presenter/bloc/search_history_bloc.dart';
 import 'package:git_users/modules/search_history/presenter/search_history_screen.dart';
 
 class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
@@ -54,7 +56,8 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
   Future<void> goToSearchHistoryScreen(BuildContext context) async {
     final String? futureSearch = await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => const SearchHistoryScreen(),
+        builder: (context) =>
+            SearchHistoryScreen(bloc: I.getDependency<SearchHistoryBloc>()),
       ),
     );
     if (futureSearch != null) {

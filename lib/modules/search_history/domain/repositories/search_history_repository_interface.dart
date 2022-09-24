@@ -3,7 +3,7 @@ import '../../../../core/exceptions/result.dart';
 import '../entities/search_history_entity.dart';
 
 abstract class ISearchHistoryRepository {
-  Result<Failure, List<SearchHistoryEntity>> getSearchHistorys();
+  Future<Result<Failure, List<SearchHistoryEntity>>> getSearchHistorys();
 
   Future<Result<Failure, void>> saveSearchHistory(
       {required SearchHistoryEntity search});

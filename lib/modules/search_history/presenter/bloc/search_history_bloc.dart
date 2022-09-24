@@ -12,8 +12,8 @@ class SearchHistoryBloc extends Bloc<SearchHistoryEvent, SearchHistoryState> {
     on<SelectedSearch>((event, emit) =>
         _goBackWithSearchChoosed(search: event.search, context: event.context));
   }
-  void _initialize(Emitter<SearchHistoryState> emit) {
-    final res = useCase.getSearchHistory();
+  void _initialize(Emitter<SearchHistoryState> emit) async {
+    final res = await useCase.getSearchHistory();
     if (res.isError) {
       emit(SearchHistoryStateError());
       return;
