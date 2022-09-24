@@ -5,18 +5,19 @@ class SharedPrefs implements ISharedPreferences {
   SharedPreferences? _prefs;
 
   Future _initPrefs() async {
-    _prefs = await SharedPreferences.getInstance();
+    _prefs ??= await SharedPreferences.getInstance();
   }
 
   @override
   Future<void> saveString(
       {required String json, required String objectName}) async {
-    if (_prefs == null) await _initPrefs();
+    await _initPrefs();
     await _prefs!.setString(objectName, json);
   }
 
   @override
-  String? getString({required String objectName}) {
+  Future<String?> getString({required String objectName}) async {
+    await _initPrefs();
     return _prefs?.getString(objectName);
   }
 }
