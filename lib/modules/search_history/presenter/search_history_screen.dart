@@ -6,13 +6,13 @@ import 'package:git_users/modules/search_history/presenter/bloc/search_history_b
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_event.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_state.dart';
 import 'package:git_users/modules/search_history/presenter/widgets/search_tile.dart';
-import '../../../core/adapters/injector/injector.dart';
 
 class SearchHistoryScreen extends StatelessWidget {
-  const SearchHistoryScreen({Key? key}) : super(key: key);
+  final SearchHistoryBloc bloc;
+  const SearchHistoryScreen({Key? key, required this.bloc}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final bloc = I.getDependency<SearchHistoryBloc>();
     bloc.add(FetchingSearchList());
     return Scaffold(
       appBar: AppBar(
