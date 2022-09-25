@@ -32,4 +32,15 @@ class SearchHistoryRepository implements ISearchHistoryRepository {
       return Result.failure(BasicError(message: e.toString()));
     }
   }
+
+  @override
+  Future<Result<Failure, void>> deleteASearch(
+      {required SearchHistoryEntity search}) async {
+    try {
+      await searchHistoryDataSource.deleteASearch(search: search);
+      return const Result.success(null);
+    } catch (e) {
+      return Result.failure(BasicError(message: e.toString()));
+    }
+  }
 }

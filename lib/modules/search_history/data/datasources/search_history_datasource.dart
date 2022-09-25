@@ -30,4 +30,15 @@ class SearchHistoryDataSource implements ISearchHistoryDataSource {
     await prefs.saveString(
         json: jsonEncode(encoded), objectName: "SEARCH LIST");
   }
+
+  @override
+  Future<void> deleteASearch({required SearchHistoryEntity search}) async {
+    List<SearchHistoryEntity> searchList = await getSearchHistorys();
+    searchList.removeWhere((s) => s.id == search.id);
+    final encoded = searchList
+        .map((e) => SearchHistoryModel.fromEntity(e).toMap())
+        .toList();
+    await prefs.saveString(
+        json: jsonEncode(encoded), objectName: "SEARCH LIST");
+  }
 }

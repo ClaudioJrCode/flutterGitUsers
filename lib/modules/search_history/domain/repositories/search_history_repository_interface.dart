@@ -7,4 +7,6 @@ abstract class ISearchHistoryRepository {
 
   Future<Result<Failure, void>> saveSearchHistory(
       {required SearchHistoryEntity search});
+  Future<Result<Failure, void>> deleteASearch(
+      {required SearchHistoryEntity search});
 }

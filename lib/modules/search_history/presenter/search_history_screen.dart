@@ -13,7 +13,6 @@ class SearchHistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bloc.add(FetchingSearchList());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Histórico de busca'),
@@ -24,12 +23,17 @@ class SearchHistoryScreen extends StatelessWidget {
           bloc: bloc,
           builder: (BuildContext context, state) {
             switch (state.runtimeType) {
+              case SearchHistoryStateIdle:
+                {
+                  bloc.add(FetchingSearchList());
+                  return const Center(child: CircularProgressIndicator());
+                }
+
               case SearchHistoryStateEmptyList:
                 {
                   return const CenterText(
                       text: 'Ainda não foi feita nenhuma busca');
                 }
-
               case SearchHistoryStateError:
                 {
                   return const CenterText(text: 'Ocorreu um erro');
@@ -39,9 +43,13 @@ class SearchHistoryScreen extends StatelessWidget {
                   return ListView.separated(
                       itemBuilder: ((context, index) => SearchTile(
                             search: state.searchs[index],
-                            onTap: () => bloc.add(SelectedSearch(
-                                context: context,
-                                search: state.searchs[index].search)),
+                            onTap: () => bloc.add(
+                              SelectedSearch(
+                                  context: context,
+                                  search: state.searchs[index].search),
+                            ),
+                            onPressDelete: () => bloc.add(DeleteASearchEvent(
+                                search: state.searchs[index])),
                           )),
                       separatorBuilder: (_, __) => const CustomDivider(),
                       itemCount: state.searchs.length);
