@@ -5,7 +5,12 @@ import 'package:intl/intl.dart';
 class SearchTile extends StatelessWidget {
   final SearchHistoryEntity search;
   final void Function() onTap;
-  const SearchTile({Key? key, required this.search, required this.onTap})
+  final void Function() onPressDelete;
+  const SearchTile(
+      {Key? key,
+      required this.search,
+      required this.onTap,
+      required this.onPressDelete})
       : super(key: key);
 
   String formatDate(DateTime date) {
@@ -23,6 +28,10 @@ class SearchTile extends StatelessWidget {
           Text(style: const TextStyle(fontSize: 25), search.search),
           Text('Busca feita em: ${formatDate(search.searchDate)}'),
         ],
+      ),
+      trailing: IconButton(
+        icon: const Icon(Icons.delete),
+        onPressed: onPressDelete,
       ),
     );
   }
