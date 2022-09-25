@@ -6,10 +6,8 @@ class CenterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Center(
-        child: Text(text),
-      ),
+    return Center(
+      child: Text(text),
     );
   }
 }
