@@ -5,6 +5,7 @@ import 'package:git_users/core/adapters/shared_preferences/shared_prefs.dart';
 import 'package:git_users/core/adapters/shared_preferences/shared_prefs_interface.dart';
 import 'package:git_users/modules/search_history/data/datasources/search_history_datasource.dart';
 import 'package:git_users/modules/search_history/domain/repositories/search_history_repository_interface.dart';
+import 'package:git_users/modules/search_history/domain/usecases/delete_a_search_usecase.dart';
 import 'package:git_users/modules/search_history/domain/usecases/get_search_history_usecase.dart';
 import 'package:git_users/modules/search_history/infra/datasource/search_history_datasource_interface.dart';
 import 'package:git_users/modules/search_history/infra/repositories/search_history_respository.dart';
@@ -45,6 +46,11 @@ Future<void> initAllDependencies() async {
     SaveNewSearchUseCase(
         repository: I.getDependency<ISearchHistoryRepository>()),
   );
+  I.registerDependency<IDeleteASearchUseCase>(
+    DeleteASearchUseCase(
+      repository: I.getDependency<ISearchHistoryRepository>(),
+    ),
+  );
   //END SEARCH HISTORY
 
   //USERS AREA
@@ -69,8 +75,8 @@ Future<void> initAllDependencies() async {
 
   I.registerDependency<SearchHistoryBloc>(
     SearchHistoryBloc(
-      useCase: I.getDependency<IGetSearchHistoryUseCase>(),
-    ),
+        useCase: I.getDependency<IGetSearchHistoryUseCase>(),
+        deleteUseCase: I.getDependency<IDeleteASearchUseCase>()),
   );
   //END USERS AREA
 }
