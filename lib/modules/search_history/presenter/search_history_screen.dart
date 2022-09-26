@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/widgets/center_text.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/widgets/users_list/custom_divider.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/widgets/center_text.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/widgets/users_list/custom_divider.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_bloc.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_event.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_state.dart';
@@ -25,7 +25,6 @@ class SearchHistoryScreen extends StatelessWidget {
             switch (state.runtimeType) {
               case SearchHistoryStateIdle:
                 {
-                  bloc.add(FetchingSearchList());
                   return const Center(child: CircularProgressIndicator());
                 }
 
@@ -44,7 +43,7 @@ class SearchHistoryScreen extends StatelessWidget {
                       itemBuilder: ((context, index) => SearchTile(
                             search: state.searchs[index],
                             onTap: () => bloc.add(
-                              SelectedSearch(
+                              SelectedSearchEvent(
                                   context: context,
                                   search: state.searchs[index].search),
                             ),
