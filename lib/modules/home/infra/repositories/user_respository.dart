@@ -1,7 +1,7 @@
 import 'package:git_users/core/exceptions/exception.dart';
 import 'package:git_users/core/exceptions/result.dart';
-import 'package:git_users/modules/home_screen/domain/entities/user_entity.dart';
-import 'package:git_users/modules/home_screen/domain/repositories/user_repository_interface.dart';
+import 'package:git_users/modules/home/domain/entities/user_entity.dart';
+import 'package:git_users/modules/home/domain/repositories/user_repository_interface.dart';
 
 import '../datasource/user_data_source_interface.dart';
 

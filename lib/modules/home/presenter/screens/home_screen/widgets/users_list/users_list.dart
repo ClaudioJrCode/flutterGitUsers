@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:git_users/modules/home_screen/domain/entities/user_entity.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/widgets/users_list/user_tile.dart';
+import 'package:git_users/modules/home/domain/entities/user_entity.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/widgets/users_list/user_tile.dart';
 
 import 'custom_divider.dart';
 

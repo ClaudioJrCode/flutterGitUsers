@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/home_screen_bloc/home_screen_bloc.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/home_screen_bloc/home_screen_event.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/widgets/center_text.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/widgets/search_bar/search_bar.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/widgets/users_list/users_list.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/home_screen_bloc/home_screen_bloc.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/home_screen_bloc/home_screen_event.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/widgets/center_text.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/widgets/search_bar/search_bar.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/widgets/users_list/users_list.dart';
 
 import 'home_screen_bloc/home_screen_state.dart';
 

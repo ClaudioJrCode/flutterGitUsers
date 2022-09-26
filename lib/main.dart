@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:git_users/core/dependencies/init.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/home_screen_bloc/home_screen_bloc.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/home_screen_bloc/home_screen_bloc.dart';
 import 'core/adapters/injector/injector.dart';
-import 'modules/home_screen/presenter/screens/home_screen/home_screen.dart';
+import 'modules/home/presenter/screens/home_screen/home_screen.dart';
 
 void main() {
   initAllDependencies();

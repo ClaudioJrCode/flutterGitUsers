@@ -9,12 +9,12 @@ import 'package:git_users/modules/search_history/domain/usecases/delete_a_search
 import 'package:git_users/modules/search_history/domain/usecases/get_search_history_usecase.dart';
 import 'package:git_users/modules/search_history/infra/datasource/search_history_datasource_interface.dart';
 import 'package:git_users/modules/search_history/infra/repositories/search_history_respository.dart';
-import 'package:git_users/modules/home_screen/data/datasources/user_data_source.dart';
-import 'package:git_users/modules/home_screen/domain/repositories/user_repository_interface.dart';
-import 'package:git_users/modules/home_screen/domain/usecases/get_user_usecase.dart';
-import 'package:git_users/modules/home_screen/infra/datasource/user_data_source_interface.dart';
-import 'package:git_users/modules/home_screen/infra/repositories/user_respository.dart';
-import 'package:git_users/modules/home_screen/presenter/screens/home_screen/home_screen_bloc/home_screen_bloc.dart';
+import 'package:git_users/modules/home/data/datasources/user_data_source.dart';
+import 'package:git_users/modules/home/domain/repositories/user_repository_interface.dart';
+import 'package:git_users/modules/home/domain/usecases/get_user_usecase.dart';
+import 'package:git_users/modules/home/infra/datasource/user_data_source_interface.dart';
+import 'package:git_users/modules/home/infra/repositories/user_respository.dart';
+import 'package:git_users/modules/home/presenter/screens/home_screen/home_screen_bloc/home_screen_bloc.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_bloc.dart';
 
 import '../../modules/search_history/domain/usecases/save_new_search_usecase.dart';

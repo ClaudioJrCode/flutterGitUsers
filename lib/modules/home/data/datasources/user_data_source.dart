@@ -1,6 +1,6 @@
 import 'package:git_users/core/adapters/http/http_interface.dart';
-import 'package:git_users/modules/home_screen/domain/entities/user_entity.dart';
-import 'package:git_users/modules/home_screen/infra/datasource/user_data_source_interface.dart';
+import 'package:git_users/modules/home/domain/entities/user_entity.dart';
+import 'package:git_users/modules/home/infra/datasource/user_data_source_interface.dart';
 
 import '../models/user_model.dart';
 
