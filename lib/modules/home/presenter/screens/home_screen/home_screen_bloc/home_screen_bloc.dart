@@ -22,7 +22,6 @@ class HomeScreenBloc extends Bloc<HomeScreenEvent, HomeScreenState> {
   Function(String) get inSearch => _searchController.sink.add;
 
   HomeScreenBloc({
-    HomeScreenState? initialState,
     required this.getUserUseCase,
     required this.saveSearchUseCase,
   }) : super(HomeScreenStateIdle()) {
