@@ -16,8 +16,14 @@ import 'package:git_users/modules/home/infra/datasource/user_data_source_interfa
 import 'package:git_users/modules/home/infra/repositories/user_respository.dart';
 import 'package:git_users/modules/home/presenter/screens/home_screen/home_screen_bloc/home_screen_bloc.dart';
 import 'package:git_users/modules/search_history/presenter/bloc/search_history_bloc.dart';
+import 'package:git_users/modules/user_details/data/datasources/user_details_datasource.dart';
+import 'package:git_users/modules/user_details/domain/repositories/user_details_repository_interface.dart';
+import 'package:git_users/modules/user_details/domain/usecases/get_user_details_usecase.dart';
+import 'package:git_users/modules/user_details/infra/repositories/user_details_repository.dart';
+import 'package:git_users/modules/user_details/presenters/screens/user_details/bloc/user_details_bloc.dart';
 
 import '../../modules/search_history/domain/usecases/save_new_search_usecase.dart';
+import '../../modules/user_details/infra/datasource/user_details_data_source_interface.dart';
 
 Future<void> initAllDependencies() async {
   //CORE DEPENDENCIES
@@ -79,4 +85,18 @@ Future<void> initAllDependencies() async {
         deleteUseCase: I.getDependency<IDeleteASearchUseCase>()),
   );
   //END USERS AREA
+
+  //USER DETAILS AREA
+  I.registerDependency<IUserDetailsDataSource>(
+      UserDetailsDataSource(client: I.getDependency<IHttpClient>()));
+
+  I.registerDependency<IUserDetailsRepository>(UserDetailsRepository(
+      userDetailsDataSource: I.getDependency<IUserDetailsDataSource>()));
+
+  I.registerDependency<IGetUserDetailsUseCase>(GetUserDetailsUseCase(
+      repository: I.getDependency<IUserDetailsRepository>()));
+
+  I.registerDependency<UserDetailsBloc>(
+      UserDetailsBloc(useCase: I.getDependency<IGetUserDetailsUseCase>()));
+  //END USER DETAILS AREA
 }
